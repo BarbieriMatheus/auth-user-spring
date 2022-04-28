@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Entrar na conta</title>
+
+<link
+	href="https: //fonts.googleapis.com/css2? family= Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700 & display=swap"
+	rel="stylesheet" />
+
+<link rel="stylesheet" href="/main.css" />
+<link rel="stylesheet" href="/create-user.css" />
+</head>
+
+<body>
+	<div class="users__container">
+		<h1 class="users__title">Entrar na conta</h1>
+
+		<div class="users__form-container">
+			<form th:object="${userDTO}" action="/users/entrar" method="POST"
+				class="users__form">
+				<div class="container-fields">
+					<div class="field">
+						<label class="label" for="name">Username</label> <input
+							th:field="*{username}" th:errorclass="is-invalid" class="input"
+							type="text" id="username" placeholder="username" />
+						<div class="invalid-feedback" th:errors="*{username}"></div>
+					</div>
+
+					<div class="field">
+						<label class="label" for="password">Senha</label> <input
+							th:field="*{password}" th:errorclass="is-invalid"
+							class="input" type="password" name="description" id="description"
+							placeholder="senha" />
+						<div class="invalid-feedback" th:errors="*{password}"></div>
+					</div>
+
+				</div>
+
+				<div class="button-container">
+					<button class="button" type="submit">entrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
